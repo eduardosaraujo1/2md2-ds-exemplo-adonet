@@ -25,7 +25,7 @@ namespace _2md2_ds_exemplo_adonet
         {
             try
             {
-                conn.ConnectionString = "Server=localhost;Database=bdcapaticatao;User=root;Pwd=root";
+                conn.ConnectionString = "Server=localhost;Database=bdcapacitacao;User=root;Pwd=root";
                 conn.Open();
             }
             catch (Exception ex)
@@ -39,10 +39,11 @@ namespace _2md2_ds_exemplo_adonet
             try
             {
                 // SQL Injection nem existe pro PDF né...
-                string query = "Select * from tblagenda WHERE agdid = @id";
+                string query = "Select * from tblagenda WHERE agdid = @cod";
                 cmd.Connection = conn;
                 cmd.CommandText = query;
-                cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@cod", tbCodigo.Text);
                 dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -56,6 +57,7 @@ namespace _2md2_ds_exemplo_adonet
                     string insertQuery = "INSERT INTO tblagenda (agdid, agdnome, agdemail, agdtelefone, agdcpf) VALUES (@cod, @nome, @email, @tel, @cpf)";
                     cmd.Connection = conn;
                     cmd.CommandText = insertQuery;
+                    cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@cod", tbCodigo.Text);
                     cmd.Parameters.AddWithValue("@nome", tbNome.Text);
                     cmd.Parameters.AddWithValue("@email", tbEmail.Text);
@@ -79,6 +81,7 @@ namespace _2md2_ds_exemplo_adonet
                 string checkExistsQuery = "Select * From tblagenda Where agdid=@id";
                 cmd.Connection = conn;
                 cmd.CommandText = checkExistsQuery;
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
                 dataReader = cmd.ExecuteReader();
                 if (!dataReader.HasRows)
@@ -97,6 +100,7 @@ Where agdid = @id
 ";
                     cmd.Connection = conn;
                     cmd.CommandText = updateQuery;
+                    cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@nome", tbNome.Text);
                     cmd.Parameters.AddWithValue("@email", tbEmail.Text);
                     cmd.Parameters.AddWithValue("@tel", tbTelefone.Text);
@@ -122,7 +126,7 @@ Where agdid = @id
             tbNome.Text = "";
             tbEmail.Text = "";
             tbTelefone.Text = "";
-            tbCodigo.Text = "";
+            tbCPF.Text = "";
             tbCodigo.Focus();
         }
 
@@ -133,6 +137,7 @@ Where agdid = @id
                 string checkExistsQuery = "Select * From tblagenda Where agdid=@id";
                 cmd.Connection = conn;
                 cmd.CommandText = checkExistsQuery;
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
                 dataReader = cmd.ExecuteReader();
                 if (!dataReader.HasRows)
@@ -147,6 +152,7 @@ Where agdid = @id
                         string delete = "Delete from tblagenda Where agdid = @id";
                         cmd.Connection = conn;
                         cmd.CommandText= delete;
+                        cmd.Parameters.Clear();
                         cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Registro removido com sucesso.", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Information );
@@ -169,6 +175,7 @@ Where agdid = @id
                 string checkExistsQuery = "Select * From tblagenda Where agdid=@id";
                 cmd.Connection = conn;
                 cmd.CommandText = checkExistsQuery;
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
                 dataReader = cmd.ExecuteReader();
                 if (!dataReader.HasRows)
