@@ -89,6 +89,7 @@
             // 
             this.tbCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCPF.Location = new System.Drawing.Point(89, 216);
+            this.tbCPF.MaxLength = 15;
             this.tbCPF.Name = "tbCPF";
             this.tbCPF.Size = new System.Drawing.Size(182, 26);
             this.tbCPF.TabIndex = 9;
@@ -107,6 +108,7 @@
             // 
             this.tbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTelefone.Location = new System.Drawing.Point(89, 184);
+            this.tbTelefone.MaxLength = 15;
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(182, 26);
             this.tbTelefone.TabIndex = 7;
@@ -127,6 +129,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEmail.Location = new System.Drawing.Point(89, 152);
+            this.tbEmail.MaxLength = 200;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(625, 26);
             this.tbEmail.TabIndex = 5;
@@ -147,6 +150,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNome.Location = new System.Drawing.Point(89, 120);
+            this.tbNome.MaxLength = 50;
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(625, 26);
             this.tbNome.TabIndex = 3;

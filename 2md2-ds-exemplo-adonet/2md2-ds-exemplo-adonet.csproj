@@ -67,6 +67,9 @@
     <EmbeddedResource Include="frmBancoDados.resx">
       <DependentUpon>frmBancoDados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarLista.resx">
+      <DependentUpon>frmConsultarLista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
