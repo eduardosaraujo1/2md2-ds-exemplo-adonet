@@ -56,6 +56,12 @@
     <Compile Include="frmBancoDados.Designer.cs">
       <DependentUpon>frmBancoDados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarLista.Designer.cs">
+      <DependentUpon>frmConsultarLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBancoDados.resx">

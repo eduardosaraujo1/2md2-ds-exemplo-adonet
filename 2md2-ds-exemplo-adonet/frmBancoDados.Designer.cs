@@ -261,6 +261,7 @@
             this.btnSair.TabIndex = 4;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnLimpar
             // 
@@ -285,6 +286,7 @@
             this.btnConsultarListaDados.TabIndex = 6;
             this.btnConsultarListaDados.Text = "Consultar Lista de Dados";
             this.btnConsultarListaDados.UseVisualStyleBackColor = true;
+            this.btnConsultarListaDados.Click += new System.EventHandler(this.btnConsultarListaDados_Click);
             // 
             // pnlContainer
             // 

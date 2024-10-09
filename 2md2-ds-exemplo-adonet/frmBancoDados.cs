@@ -191,5 +191,17 @@ Where agdid = @id
             }
 
         }
+
+        private void btnConsultarListaDados_Click(object sender, EventArgs e)
+        {
+            frmConsultarLista consulta = new frmConsultarLista();
+            consulta.ShowDialog();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            conn.Close();
+            Application.Exit();
+        }
     }
 }
