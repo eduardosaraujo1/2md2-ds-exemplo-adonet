@@ -16,7 +16,7 @@ namespace _2md2_ds_exemplo_adonet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmBancoDados());
         }
     }
 }
