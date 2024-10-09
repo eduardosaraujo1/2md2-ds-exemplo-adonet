@@ -120,5 +120,41 @@ Where agdid = @id
         {
 
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string checkExistsQuery = "Select * From tblagenda Where agdid=@id";
+                cmd.Connection = conn;
+                cmd.CommandText = checkExistsQuery;
+                cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
+                dataReader = cmd.ExecuteReader();
+                if (!dataReader.HasRows)
+                {
+                    MessageBox.Show("Código não existe", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbCodigo.Focus();
+                } else
+                {
+                    if (!dataReader.IsClosed) dataReader.Close();
+                    if (MessageBox.Show("Deseja Excluir?", "ADO.NET", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string delete = "Delete from tblagenda Where agdid = @id";
+                        cmd.Connection = conn;
+                        cmd.CommandText= delete;
+                        cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Registro removido com sucesso.", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Information );
+                        btnLimpar_Click(sender, e);
+                    }
+                }
+                if (!dataReader.IsClosed) dataReader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ==> {ex.Message}", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
