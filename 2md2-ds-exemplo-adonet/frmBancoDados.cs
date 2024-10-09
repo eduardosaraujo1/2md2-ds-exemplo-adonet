@@ -118,7 +118,12 @@ Where agdid = @id
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-
+            tbCodigo.Text = "";
+            tbNome.Text = "";
+            tbEmail.Text = "";
+            tbTelefone.Text = "";
+            tbCodigo.Text = "";
+            tbCodigo.Focus();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
