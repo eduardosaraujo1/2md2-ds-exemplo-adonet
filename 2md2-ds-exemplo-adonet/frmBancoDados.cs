@@ -156,5 +156,35 @@ Where agdid = @id
                 MessageBox.Show($"Erro ==> {ex.Message}", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string checkExistsQuery = "Select * From tblagenda Where agdid=@id";
+                cmd.Connection = conn;
+                cmd.CommandText = checkExistsQuery;
+                cmd.Parameters.AddWithValue("@id", tbCodigo.Text);
+                dataReader = cmd.ExecuteReader();
+                if (!dataReader.HasRows)
+                {
+                    MessageBox.Show("Código não existe", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbCodigo.Focus();
+                } else
+                {
+                    dataReader.Read();
+                    tbNome.Text = dataReader["agdnome"].ToString();
+                    tbEmail.Text = dataReader["agdemail"].ToString();
+                    tbTelefone.Text = dataReader["agdtelefone"].ToString();
+                    tbCPF.Text = dataReader["agdcpf"].ToString();
+                }
+                if (!dataReader.IsClosed) dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ==> {ex.Message}", "ADO.NET", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
